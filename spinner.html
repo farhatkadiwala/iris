@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body{
+        background-color: rgb(12, 11, 11);
+    }
+    .spinner {
+      background-image: linear-gradient(
+        rgb(186, 66, 255) 30%,
+        rgb(0, 225, 255)
+      );
+      width: 200px;
+      height: 200px;
+      animation: spinning82341 1.7s linear infinite;
+      text-align: center;
+      border-radius: 500px;
+      filter: blur(1px);
+      box-shadow: 0px -5px 30px 0px rgb(186, 66, 255),
+        0px 5px 30px 0px rgb(0, 225, 255);
+    }
+
+    .spinner1 {
+      background-color: rgb(12, 11, 11);
+      width: 200px;
+      height: 200px;
+      border-radius: 500px;
+      filter: blur(50px);
+      color: white;
+      font-size: xx-large;
+    }
+
+    @keyframes spinning82341 {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .voice-elt{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="voice-elt">
+       
+        <div class="spinner">
+            <div class="spinner1">  <p> Hello Manu </p> </div>
+            
+        </div>
+    </div>
+</body>
+</html>
