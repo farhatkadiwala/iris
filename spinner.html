@@ -1,55 +1,83 @@
 <!DOCTYPE html>
-<head>
-  <style>
-    body{
+<html lang="en">
+  <head>
+    <style>
+      body {
         background-color: rgb(12, 11, 11);
-    }
-    .spinner {
-      background-image: linear-gradient(
-        rgb(186, 66, 255) 30%,
-        rgb(0, 225, 255)
-      );
-      width: 200px;
-      height: 200px;
-      animation: spinning82341 1.7s linear infinite;
-      text-align: center;
-      border-radius: 500px;
-      filter: blur(1px);
-      box-shadow: 0px -5px 30px 0px rgb(186, 66, 255),
-        0px 5px 30px 0px rgb(0, 225, 255);
-    }
-
-    .spinner1 {
-      background-color: rgb(12, 11, 11);
-      width: 200px;
-      height: 200px;
-      border-radius: 500px;
-      filter: blur(50px);
-      color: white;
-      font-size: xx-large;
-    }
-
-    @keyframes spinning82341 {
-      to {
-        transform: rotate(360deg);
       }
-    }
 
-    .voice-elt{
+      .spinner-border {
+        background-image: linear-gradient(
+          rgb(186, 66, 255) 8%,
+          rgb(0, 225, 255)
+        );
+        border-color: white;
+        width: 80px;
+        height: 80px;
+        animation: bouncingSpinner 0.8s ease-in-out infinite;
+        text-align: center;
+        border-radius: 500px;
+        filter: blur(12px);
+        box-shadow: 0px -5px 30px 0px rgb(186, 66, 255),
+          0px 5px 30px 0px rgb(0, 225, 255);
+      }
+
+      .spinner {
+        background-color: rgb(12, 11, 11);
+        width: 80px;
+        height: 80px;
+        border-radius: 500px;
+        filter: blur(12px);
+        color: white;
+      }
+
+      .spinner-inside {
+        fill: linear-gradient(180deg, #dfa8ff 0%, rgba(226, 226, 226, 0) 100%);
+        stroke-width: 1px;
+        stroke: #d790ff;
+      }
+
+      @keyframes bouncingSpinner {
+        0%,
+        100% {
+          transform: scale(0.8);
+        }
+        50% {
+          transform: scale(1);
+        }
+      }
+
+      .voice-elt {
         position: absolute;
-        right: 0;
-        top: 0;
-    }
-  </style>
-</head>
-
-<body>
+        right: 2rem;
+        top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
     <div class="voice-elt">
-       
+      <div class="spinner-border">
         <div class="spinner">
-            <div class="spinner1">  <p> Hello Manu </p> </div>
-            
+          <div class="spinner-inside"></div>
         </div>
+      </div>
+      <div
+        style="
+          width: max-content;
+          padding: 1.2rem;
+          background: rgba(144.84, 144.84, 144.84, 0.8);
+          border-radius: 12px 0px 12px 0px;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          right: 0rem;
+          top: 7rem;
+        "
+      >
+        <div style="color: #383838; font-size: 15px; font-family: Rethink Sans">
+          Hello Farhat, welcome to Iris
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
