@@ -2,48 +2,69 @@
 <html lang="en">
   <head>
     <style>
+      root {
+        --loud: 1.2;
+        --mid: 1;
+        --soft: 0.8;
+      }
       body {
         background-color: rgb(12, 11, 11);
       }
 
-      .spinner-border {
+      #spinner-border {
         background-image: linear-gradient(
-          rgb(186, 66, 255) 8%,
+          rgb(186, 66, 255) 2%,
           rgb(0, 225, 255)
         );
         border-color: white;
-        width: 80px;
-        height: 80px;
-        animation: bouncingSpinner 0.8s ease-in-out infinite;
+        width: 65px;
+        height: 65px;
         text-align: center;
         border-radius: 500px;
-        filter: blur(12px);
-        box-shadow: 0px -5px 30px 0px rgb(186, 66, 255),
-          0px 5px 30px 0px rgb(0, 225, 255);
+        box-shadow: 0px -5px 10px 0px rgb(186, 66, 255),
+          0px 5px 10px 0px rgb(0, 225, 255);
       }
 
-      .spinner {
+      #spinner {
         background-color: rgb(12, 11, 11);
-        width: 80px;
-        height: 80px;
+        width: 65px;
+        height: 65px;
         border-radius: 500px;
         filter: blur(12px);
         color: white;
       }
 
-      .spinner-inside {
+      #spinner-inside {
         fill: linear-gradient(180deg, #dfa8ff 0%, rgba(226, 226, 226, 0) 100%);
         stroke-width: 1px;
         stroke: #d790ff;
       }
 
+      .active {
+        animation: bouncingSpinner 0.8s ease-in-out infinite;
+      }
+
       @keyframes bouncingSpinner {
         0%,
         100% {
-          transform: scale(0.8);
+          transform: scale(var(--loud));
         }
         50% {
-          transform: scale(1);
+          transform: scale(0.9);
+        }
+      }
+
+      .init {
+        animation: rotatingSpinner 0.8s ease-in-out infinite;
+      }
+
+      @keyframes rotatingSpinner {
+        0%,
+        100% {
+          transform: rotate(45deg);
+        }
+        50% {
+          transform: rotate(90deg);
         }
       }
 
@@ -56,22 +77,36 @@
   </head>
   <body>
     <div class="voice-elt">
-      <div class="spinner-border">
-        <div class="spinner">
-          <div class="spinner-inside"></div>
+      <div id="spinner-border">
+        <div id="spinner">
+          <script>
+            spinner_border = document.getElementById("spinner-border");
+            spinner_border.className = "init";
+
+            function getRandomInt(max) {
+              return Math.floor(Math.random() * max * 1000);
+            }
+
+            function bounce() {
+              spinner_border.className = "active";
+            }
+            setTimeout(bounce, 3000);
+          </script>
+          <div id="spinner-inside"></div>
         </div>
       </div>
       <div
         style="
           width: max-content;
           padding: 1.2rem;
-          background: rgba(144.84, 144.84, 144.84, 0.8);
-          border-radius: 12px 0px 12px 0px;
+          background: rgba(144.84, 144.84, 144.84, 0.9);
+          border-radius: 12px;
+          overflow: hidden;
           justify-content: center;
           align-items: center;
           position: absolute;
           right: 0rem;
-          top: 7rem;
+          top: 5.5rem;
         "
       >
         <div style="color: #383838; font-size: 15px; font-family: Rethink Sans">
